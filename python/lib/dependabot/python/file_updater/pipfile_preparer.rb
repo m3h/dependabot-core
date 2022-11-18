@@ -20,6 +20,7 @@ module Dependabot
         def replace_sources(credentials)
           pipfile_object = TomlRB.parse(pipfile_content)
 
+          # comment change, to trigger CI
           pipfile_object["source"] =
             pipfile_sources.reject { |h| h["url"].include?("${") } +
             config_variable_sources(credentials)
